@@ -1,0 +1,9 @@
+<script>
+    $(document).ready(function() {
+        $('#popoverData').popover();
+      $('#popoverOption').popover({ trigger: "hover" });
+     
+ } );
+ </script>
+
+<a id="popoverData" class="btn" href="#" data-content="{{report.match_amount}}" rel="popover" data-placement="bottom" data-original-title="Title" data-trigger="hover"><td>{{report.matching}}</td></a>

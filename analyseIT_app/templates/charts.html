@@ -1,0 +1,366 @@
+{% extends 'base.html' %} {% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- mdb -->
+
+    <script type="text/javascript">
+      window.onload = function () {
+        var chart = new CanvasJS.Chart("chartContainer", {
+          title: {
+            text: "chun rate ",
+          },
+          data: [
+            {
+              type: "doughnut",
+              dataPoints: [
+                { y: 53.37, indexLabel: "January", color: "#03529c" },
+                { y: 35.0, indexLabel: "February", color: "#FFC100" },
+                { y: 7, indexLabel: "March", color: "#FF4747" },
+              ],
+              zeroLineColor: "#575757",
+            },
+          ],
+        });
+
+        chart.render();
+      };
+    </script>
+    <script
+      type="text/javascript"
+      src="https://canvasjs.com/assets/script/canvasjs.min.js"
+    ></script>
+    <title>Analytics App</title>
+  </head>
+  <body>
+    {% block content %}
+    <div class="container-scroller">
+      <!-- partial -->
+      {% include "navbar.html" %}
+
+      <div class="container-fluid page-body-wrapper">
+        {% include "settings-panel.html" %}
+
+        <div class="main-panel">
+          <div class="">
+            <div class="row">
+              <div class="col-md-12">
+                <h3 class="font-weight-bold">
+                  <span class="span-title">Mobile Services</span>
+                </h3>
+              </div>
+            </div>
+            <div class="row mt-4">
+              <div class="col-md-12">
+                <!-- Tabs navs -->
+                <!-- Tabs navs -->
+                <div class="row">
+                  <div class="col-md-12">
+                    <h3 class="font-weight-bold">
+                      <span class="span-title">Analytics page</span>
+                    </h3>
+                  </div>
+                  <div class="col-md-12 grid-margin stretch-card">
+                    <div class="card position-relative">
+                      <div class="card-body">
+                        <div
+                          id="detailedReports"
+                          class="carousel slide detailed-report-carousel position-static pt-2"
+                          data-ride="carousel"
+                        >
+                          <div class="carousel-inner">
+                            <div class="carousel-item active">
+                              <div class="row">
+                                <div class="col-md-2 col-xl-2">
+                                  <p class="mb-4">Users</p>
+                                  <h3 class="font-weight-bold mb-2">100111</h3>
+                                  <br />
+                                  <p class="mb-4">Accounts</p>
+
+                                  <h3 class="font-weight-bold mb-2">
+                                    1000222222
+                                  </h3>
+                                  <br />
+                                  <p class="mb-4">Amount</p>
+                                  <h3 class="font-weight-bold mb-2">
+                                    20003333 $
+                                  </h3>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                  <canvas id="order-chart"></canvas>
+                                  <div id="order-chart"></div>
+                                </div>
+                                <div class="col-md-4 col-xl-4">
+                                  <div
+                                    class="table-responsive mb-3 mb-md-0 mt-4"
+                                  >
+                                    <table
+                                      class="table table-borderless report-table"
+                                    >
+                                      <tr>
+                                        <td class="text-muted"><b> Name</b></td>
+                                        <td class="text-muted">
+                                          <b> Progress</b>
+                                        </td>
+                                        <td class="text-muted"><b>Done</b></td>
+                                      </tr>
+                                      <tr>
+                                        <td class="text-muted">Internet</td>
+                                        <td class="w-100 px-0">
+                                          <div
+                                            class="progress progress-md mx-4"
+                                          >
+                                            <div
+                                              class="progress-bar bg-primary"
+                                              role="progressbar"
+                                              style="width: 70%"
+                                              aria-valuenow="70"
+                                              aria-valuemin="0"
+                                              aria-valuemax="100"
+                                            ></div>
+                                          </div>
+                                        </td>
+                                        <td>
+                                          <h5 class="font-weight-bold mb-0">
+                                            713
+                                          </h5>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="text-muted">Banking</td>
+                                        <td class="w-100 px-0">
+                                          <div
+                                            class="progress progress-md mx-4"
+                                          >
+                                            <div
+                                              class="progress-bar bg-warning"
+                                              role="progressbar"
+                                              style="width: 30%"
+                                              aria-valuenow="30"
+                                              aria-valuemin="0"
+                                              aria-valuemax="100"
+                                            ></div>
+                                          </div>
+                                        </td>
+                                        <td>
+                                          <h5 class="font-weight-bold mb-0">
+                                            583
+                                          </h5>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="text-muted">Transport</td>
+                                        <td class="w-100 px-0">
+                                          <div
+                                            class="progress progress-md mx-4"
+                                          >
+                                            <div
+                                              class="progress-bar bg-danger"
+                                              role="progressbar"
+                                              style="width: 95%"
+                                              aria-valuenow="95"
+                                              aria-valuemin="0"
+                                              aria-valuemax="100"
+                                            ></div>
+                                          </div>
+                                        </td>
+                                        <td>
+                                          <h5 class="font-weight-bold mb-0">
+                                            924
+                                          </h5>
+                                        </td>
+                                      </tr>
+                                    </table>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <a
+                            class="carousel-control-prev"
+                            href="#detailedReports"
+                            role="button"
+                            data-slide="prev"
+                          >
+                            <span
+                              class="carousel-control-prev-icon"
+                              aria-hidden="true"
+                            ></span>
+                            <span class="sr-only">Previous</span>
+                          </a>
+                          <a
+                            class="carousel-control-next"
+                            href="#detailedReports"
+                            role="button"
+                            data-slide="next"
+                          >
+                            <span
+                              class="carousel-control-next-icon"
+                              aria-hidden="true"
+                            ></span>
+                            <span class="sr-only">Next</span>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Tabs content -->
+                <div class="row">
+                  <div class="col-md-6 grid-margin stretch-card">
+                    <div class="card position-relative">
+                      <div class="card-body">
+                        <div
+                          id="detailedReports"
+                          class="carousel slide detailed-report-carousel position-static pt-2"
+                          data-ride="carousel"
+                        >
+                          <div class="carousel-inner">
+                            <div class="carousel-item active">
+                              <div class="row">
+                                <div class="col-md-12 mb-12">
+                                  <p class="card-title">Transport Means</p>
+                                  <p class="mb-2 mb-xl-0">
+                                    This graph shows the Number of Transaction
+                                    of each digital channel.
+                                  </p>
+                                  <br /><br />
+                                  <canvas id="sales-chart"></canvas>
+                                  <div id="sales-chart"></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <a
+                            class="carousel-control-prev"
+                            href="#detailedReports"
+                            role="button"
+                            data-slide="prev"
+                          >
+                            <span
+                              class="carousel-control-prev-icon"
+                              aria-hidden="true"
+                            ></span>
+                            <span class="sr-only">Previous</span>
+                          </a>
+                          <a
+                            class="carousel-control-next"
+                            href="#detailedReports"
+                            role="button"
+                            data-slide="next"
+                          >
+                            <span
+                              class="carousel-control-next-icon"
+                              aria-hidden="true"
+                            ></span>
+                            <span class="sr-only">Next</span>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 grid-margin stretch-card">
+                    <div class="card position-relative">
+                      <div class="card-body">
+                        <div
+                          id="detailedReports"
+                          class="carousel slide detailed-report-carousel position-static pt-2"
+                          data-ride="carousel"
+                        >
+                          <div class="carousel-inner">
+                            <div class="carousel-item active">
+                              <div class="row">
+                                <div class="col-md-12 mb-12">
+                                  <div
+                                    id="chartContainer"
+                                    style="height: 500px; width: 100%"
+                                  ></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <a
+                            class="carousel-control-prev"
+                            href="#detailedReports"
+                            role="button"
+                            data-slide="prev"
+                          >
+                            <span
+                              class="carousel-control-prev-icon"
+                              aria-hidden="true"
+                            ></span>
+                            <span class="sr-only">Previous</span>
+                          </a>
+                          <a
+                            class="carousel-control-next"
+                            href="#detailedReports"
+                            role="button"
+                            data-slide="next"
+                          >
+                            <span
+                              class="carousel-control-next-icon"
+                              aria-hidden="true"
+                            ></span>
+                            <span class="sr-only">Next</span>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Tabs content -->
+              </div>
+            </div>
+            <!--            
+          
+           <div class="row container d-flex justify-content-center">
+            <div class="col-sm-6">
+                <div class="mb-3">
+                              <ul class="nav nav-pills" id="myTab" role="tablist">
+                                 <li class="nav-item"><a class="nav-link active" id="home-tab" data-toggle="tab" href="#home2" role="tab" aria-controls="home" aria-selected="true">My Home</a></li>
+                                 <li class="nav-item"><a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile2" role="tab" aria-controls="profile" aria-selected="false">My Contact</a></li>
+                                 <li class="nav-item"><a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact2" role="tab" aria-controls="contact" aria-selected="false">My Profile</a></li>
+                              </ul>
+                           </div>
+                           <div class="tab-content mb-4">
+                              <div class="tab-pane fade show active" id="home2" role="tabpanel" aria-labelledby="home-tab">
+                                 <p>For what reason would it be advisable for me to think about business content?</p>
+                              </div>
+                              <div class="tab-pane fade" id="profile2" role="tabpanel" aria-labelledby="profile-tab">
+                                 <p>For what reason would it be advisable about business content?</p>
+                              </div>
+                              <div class="tab-pane fade" id="contact2" role="tabpanel" aria-labelledby="contact-tab">
+                                 <p>For what reason would it be advisable business content?</p>
+                              </div>
+                           </div>
+                
+            </div>
+        </div> -->
+            <!-- content-wrapper ends -->
+            <!-- partial:partials/_footer.html -->
+            <footer class="footer">
+              <div
+                class="d-sm-flex justify-content-center justify-content-sm-between"
+              >
+                <span
+                  class="text-muted text-center text-sm-left d-block d-sm-inline-block"
+                  >Copyright © 2022</span
+                >
+              </div>
+            </footer>
+            <!-- partial -->
+          </div>
+
+          <!-- main-panel ends -->
+        </div>
+
+        <!-- page-body-wrapper ends -->
+      </div>
+      <!-- container-scroller -->
+
+      <!-- plugins:js -->
+    </div>
+    {% endblock %}
+  </body>
+</html>
